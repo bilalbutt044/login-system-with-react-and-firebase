@@ -1,0 +1,28 @@
+<h2> {{"Heading:" + text}} </h2>
+<ul>
+  <li *ngFor="let course of courses">
+    {{course}}
+  </li>
+</ul>
+<!-- <img src={{imageUrl}} /> -->
+property binding<br>
+<img [src]='imageUrl' />
+<table>
+  <tr>
+    <td [attr.colspan]="colSpan">hello </td>
+    <td [attr.colspan]="colSpan">hello </td>
+  </tr>
+</table>
+<button class="btn btn-success" [style.backgroundColor]="isActive? 'blue':'brown'">Save</button>
+<div (click)="divClick()">
+  <button (click)="ClickBtn($event)">btnEvent</button>
+</div>
+<input type="text" [(ngModel)]="email" (Keyup.enter)="keyPressEvent()">
+<p>{{email}}</p>
+{{course.title | uppercase}} <br>
+{{course.rating  | number: '1.1-2'}} <br>
+{{course.students | number}} <br>
+{{course.prince | currency: 'PKR' : true: '3.1-2'}} <br>
+{{course.releaseDate | date:shortDate}}
+<br> 
+{{paragraph | summary}}

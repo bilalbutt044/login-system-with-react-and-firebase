@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Add</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class=".h2">Add Information</h2>
+                <input type="text" class="form-control" placeholder="id" id="id" required>
+                <input type="text" class="form-control" placeholder="firstname" id="firstname" >
+                <input type="text" class="form-control" id="lastname" placeholder="lastname" >                
+                <input type="text" class="form-control" id="mobileno" placeholder="mobileno" >
+                <input type="text" class="form-control" id="address" placeholder="address" >
+                <input type="text" class="form-control" id="uEmail" placeholder="email" >
+
+                <button class="btn btn-primary" onclick="add()">Add</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function add(){
+        fname = document.getElementById('firstname');
+        lname = document.getElementById('lastname');
+        mblno= document.getElementById('mobileno');
+        address  = document.getElementById('address');
+        uEmail  = document.getElementById('uEmail');
+        
+        var user = JSON.stringify({
+            firstname :fname.value,
+            lastname : lname.value,
+            mblno: mblno.value,
+            address : address.value,
+            email : uEmail.value,    
+        })
+        // var id = document.getElementById('id').value
+        
+            localStorage.setItem(uEmail.value , user);
+
+            alert('Added successfully');
+        }
+        
+    </script>    
+
+</body>
+</html>

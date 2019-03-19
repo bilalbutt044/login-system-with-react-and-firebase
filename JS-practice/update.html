@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Add</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class=".h2">Add Information</h2>
+                <input type="text" class="form-control" placeholder="id" id="eid" required>
+                <input type="text" class="form-control" placeholder="firstname" id="firstname" >
+                <input type="text" class="form-control" id="lastname" placeholder="lastname" >                
+                <input type="text" class="form-control" id="mobileno" placeholder="mobileno" >
+                <input type="text" class="form-control" id="address" placeholder="address" >
+                <input type="text" class="form-control" id="uEmail" placeholder="email" >
+                <button class="btn btn-primary" onclick="update()">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+       var fname = document.getElementById('firstname');
+       var lname = document.getElementById('lastname');
+       var mblno= document.getElementById('mobileno');
+       var address  = document.getElementById('address');
+       var uEmail  = document.getElementById('uEmail');
+        
+        var  user = JSON.parse(localStorage.id);    
+        fname.value = user.firstname;
+        lname.value = user.lastname;    
+        mblno.value = user.mblno;
+        address.value = user.address;
+        uEmail.value  =  user.email;   
+
+        function update(){
+            
+            
+        var user = JSON.stringify({
+            firstname :fname.value,
+            lastname : lname.value,
+            mblno: mblno.value,
+            address : address.value,
+            email : uEmail.value,    
+        })
+        // var id = document.getElementById('id').value
+        
+            localStorage.setItem('id' , user);
+
+            alert('Updated successfully');
+        }
+        
+
+
+
+    </script>    
+
+</body>
+</html>
